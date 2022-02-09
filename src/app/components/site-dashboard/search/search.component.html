@@ -1,0 +1,12 @@
+<div class="container-body">
+  <div class="sidebar-filter">
+    <app-sidebar-filter [IsModal]="false" (onPriceFilterChange)="priceFilterChangedHandler($event)"></app-sidebar-filter>
+  </div>
+  
+  <div class="rightside-content">
+      <app-product (onMobileFilterClicked)="mobileFilterClicked($event)"></app-product>
+  </div>
+</div>
+<div class="mobile-filter">
+    <app-sidebar-filter [IsModal]="true" (onMobileFilterClose)="onMobileFilterClose($event)" (onPriceFilterChange)="priceFilterChangedHandler($event)"></app-sidebar-filter>
+</div>

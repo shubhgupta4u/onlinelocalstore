@@ -1,0 +1,42 @@
+{
+    "short_name": "OLS WebApp",
+    "name": "Online Local Store",
+    "icons": [
+      {
+        "src": "/assets/images/icon-36.png",
+        "sizes": "36x36",
+        "type": "image/png",
+        "density": 0.75
+      },
+      {
+        "src": "/assets/images/icon-48.png",
+        "sizes": "48x48",
+        "type": "image/png",
+        "density": 1.0
+      },
+      {
+        "src": "/assets/images/icon-72.png",
+        "sizes": "72x72",
+        "type": "image/png",
+        "density": 1.0
+      },
+      {
+        "src": "/assets/images/icon-88.png",
+        "sizes": "88x88",
+        "type": "image/png",
+        "density": 1.5
+      },
+      {
+        "src": "/assets/images/icon-96.png",
+        "sizes": "96x96",
+        "type": "image/png",
+        "density": 2.0
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#fff",
+    "display": "standalone",
+    "scope": "/home/",
+    "theme_color": "#3b5998",
+    "orientation": "portrait"
+  }

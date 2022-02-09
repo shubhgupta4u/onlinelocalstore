@@ -1,0 +1,61 @@
+// Variables
+// ---------
+@import '../../../style/variables/colors';
+@import '../../../style/variables/typography';
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9990;
+    top: 0;
+    left: 0;
+    background-color: $defaultNavBarBgColor;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: $headerHyperlinkColor;
+    display: block;
+    transition: 0.3s;
+        
+}
+
+.sidenav a:hover {
+    background-color: $headerHyperlinkColor;  
+    color: $defaultHeaderBgColor;
+}
+.sidenav .active {
+    background-color: $headerHyperlinkColor;  
+    color: $defaultHeaderBgColor;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    display: inline;
+    &:hover{
+        background-color: $defaultNavBarBgColor;  
+        color: $headerHyperlinkColor;
+        font-weight: bold;
+    }
+}
+.sidebar-title{
+    position: absolute;
+    float: left;
+    padding: 8px 8px 8px 32px;
+    margin-top: 8px;
+    top: 0;
+    font-size: $sidebar-fontsize;
+    color: $headerHyperlinkColor;
+}
+@media screen and (max-height: 450px) {
+  .sidenav a {font-size: 18px;}
+}

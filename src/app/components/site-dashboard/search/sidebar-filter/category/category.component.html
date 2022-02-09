@@ -1,0 +1,18 @@
+<ul>
+    <li>
+      <a href="#" (click)="toggle($event)" *ngIf="isExpanded && category.childCategories!=null && category.childCategories.length>0">
+          <i class="fa fa-minus"></i>
+      </a> 
+      <a href="#" (click)="toggle($event)" *ngIf="!isExpanded && category.childCategories!=null && category.childCategories.length>0">
+          <i class="fa fa-plus"></i>
+      </a> 
+      <a [class.parent]="category.parentId == -1" [class.active]="category._id == selectedCategoryId" (click) = "onCategoryClicked($event,category)">
+        {{category.name}}
+      </a>
+      <ul *ngIf="category.childCategories!=null && category.childCategories.length>0">
+        <li *ngFor="let child of category.childCategories | filterIsactive; let idx=index">
+            <app-category [category]="child"></app-category>
+        </li>
+      </ul>
+    </li>
+  </ul>

@@ -1,0 +1,40 @@
+.content-top{
+    min-height: 82px;
+}
+.content-top2{
+    min-height: 30px;
+    display: none;
+}
+.container-main{
+    min-height: calc(100vh - 160px);
+}
+@media screen and (min-width: 768px) {
+    .content-top2{
+        display: block;
+    }
+}
+
+.busy-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    background-color: transparent;
+    .busy {
+      position: relative;
+      width: 0%;
+      height: 5px;
+      background-color: black;
+      opacity: 1;
+    }
+    .screen {
+      position: relative;
+      width: 100%;
+      height: calc(100% - 5px);
+      background-color: white;
+      opacity: 0.5;
+    }
+  }

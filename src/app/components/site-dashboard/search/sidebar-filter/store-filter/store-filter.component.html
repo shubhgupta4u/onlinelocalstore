@@ -1,0 +1,74 @@
+<div class="searchtext-container">
+  <i width="20" height="20" class="fa fa-search" aria-hidden="false"></i>
+  <input type="text" class="searchinput" [(ngModel)]="searchText" placeholder="Search Store">
+</div>
+<div class="storename-container" *ngIf="stores">
+  <div *ngFor="let store of stores|storeFilter:searchText:7; let idx=index">
+    <div class="storeAlphabet-item">
+      <div class="storecheckbox-wrapper" (click)="onStoreSelection($event, store, true)" [title]="store.name">
+        <div class="proxy-checkbox" [class.active]="store.isSelected">
+          <i> &#10003;</i>
+        </div>
+        <div class="checkbox-storename">{{store.name}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="viewmorestore">
+  <a href="#" (click)="viewMoreStoreOption($event)"> View More</a>
+</div>
+<div class="storefilter">
+  <div class="header-storefilter">
+    <div class="searchtext-container">
+      <i width="20" height="20" class="fa fa-search" aria-hidden="false"></i>
+      <input type="text" [(ngModel)]="searchText" class="searchinput" placeholder="Search Store">
+    </div>
+    <div>
+      <span class="store-icon-btn">
+        <i class="fa fa-filter" style="position: relative;" aria-hidden="true">
+          <i class="fa fa-times" style="position:absolute;top:4px;left:8px;font-size:12px;" aria-hidden="true"></i>
+        </i>
+      </span>
+      <span class="store-icon-btn">
+          <i class="fa fa-gavel fa-rotate-90" style="position: relative;" aria-hidden="true">
+            <i class="fa fa-save fa-rotate-270" style="position:absolute;top:-6px;left:6px;font-size:12px;" aria-hidden="true"></i>
+          </i>
+        </span>
+      <div class="std-btn store-btn store-link-btn" (click)="clearAll()">
+        <span>Clear all</span>
+      </div>
+      <div class="std-btn store-btn std-btn-box store-btn-box" (click)="applyFilter($event)">
+        <span>Apply Filters</span>
+      </div>
+      <div class="filter-close">
+        <a (click)="closeStoreFilterScreen($event)" href="#">
+          <i class="fa fa-window-close" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="filterby-alphabets">
+    <a *ngFor="let item of alphabets" href="#" (click)="scrollToStoreByAlphabet($event, item)">{{item|uppercase}}</a>
+  </div>
+  <div class="storeName" *ngIf="stores">
+    <div class="storename-container" *ngFor="let store of stores|storeFilter:searchText; let idx=index">
+      <div id="store{{store.name[0]}}" class="storeAlphabet-item" *ngIf="idx == 0 || store.name[0].toLowerCase() != stores[idx - 1].name[0].toLowerCase()">
+        <div class="storecheckbox-wrapper bookmark">{{store.name[0] | uppercase}}</div>
+      </div>
+
+      <div class="storeAlphabet-item">
+        <div class="storecheckbox-wrapper" (click)="onStoreSelection($event, store, false)" [title]="store.name">
+          <div class="proxy-checkbox" [class.active]="store.isSelected">
+            <i> &#10003;</i>
+          </div>
+          <div class="checkbox-storename">{{store.name}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-filter-footer">
+
+  </div>
+</div>

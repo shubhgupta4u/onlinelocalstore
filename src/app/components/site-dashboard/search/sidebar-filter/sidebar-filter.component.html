@@ -1,0 +1,29 @@
+<div class="sidebar-filter">
+  <div class="sidebar-filter-section filter-header">
+    <div class="sidebar-filter-heading">Filters</div>
+    <div class="mobile-filter-close">
+      <a (click)="closeMobileFilterScreen($event)" href="#">
+        <i class="fa fa-window-close" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+  <div class="sidebar-filter-section" *ngIf="categories && categories.length > 0">
+    <div class="sidebar-filter-title">Categories</div>
+    <div>
+        <app-category *ngFor="let category of categories" [category]="category"></app-category>
+    </div>   
+  </div>
+  <div class="sidebar-filter-section">
+    <div class="sidebar-filter-title">Price</div>
+    <ion-range-slider #sliderElement type="double" [min]="minPrice" [max]="maxPrice" [(from)]="fromPrice" from_shadow="true" [(to)]="toPrice"
+      to_shadow="true" grid="true" grid_num="10" prefix="₹" postfix="" decorate_both="false" (onFinish)="OnFinish($event)">
+    </ion-range-slider>
+  </div>
+  <div class="sidebar-filter-section">
+    <div class="sidebar-filter-title">Store</div>
+    <app-store-filter [IsModal]="IsModal"></app-store-filter>
+  </div>
+  <div class="mobile-filter-footer">
+
+  </div>
+</div>

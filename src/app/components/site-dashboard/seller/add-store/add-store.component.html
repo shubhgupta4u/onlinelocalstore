@@ -1,0 +1,85 @@
+<div class="store_header">
+  <div class="store_logo">
+    <div class="store_img_container">
+      <img class="imglogo" [src]="imgLogo" />
+      <i class="fa fa-edit btnEdit" (click)="openModal(template,'editLogo', -1)"></i>
+    </div>
+    <div class="store_img_container">
+      <input id="inputStoreName" type="text" maxlength="40" class="store_name autogrow-text" factor="14" [(ngModel)]="storeName"
+        readonly/>
+      <i class="fa fa-edit btnEdit" (click)="editLabel('inputStoreName')"></i>
+      <i class="fa fa-save btnSave" (click)="saveLabel('inputStoreName', -1)"></i>
+    </div>
+  </div>
+  <div class="store_plinks_container">
+    <div class="store_plinks">
+      <div class="plinkitem-container">
+        <input id="inputMenu1" (click)="openPage('inputMenu1',page1Title)" type="text" class="store_plinkitem autogrow-text" factor="9"
+          maxlength="20" [(ngModel)]="page1Title" [class.active]="page1Title == pageName" readonly/>
+        <i class="fa fa-edit btnEdit" (click)="editLabel('inputMenu1')"></i>
+        <i class="fa fa-save btnSave" (click)="saveLabel('inputMenu1',1)"></i>
+      </div>
+      <div class="plinkitem-container">
+        <input id="inputMenu2" (click)="openPage('inputMenu2',page2Title)" type="text" class="store_plinkitem autogrow-text" factor="9"
+          maxlength="20" [(ngModel)]="page2Title" [class.active]="page2Title == pageName" readonly />
+        <i class="fa fa-edit btnEdit" (click)="editLabel('inputMenu2')"></i>
+        <i class="fa fa-save btnSave" (click)="saveLabel('inputMenu2',2)"></i>
+      </div>
+      <div class="plinkitem-container">
+        <input id="inputMenu3" (click)="openPage('inputMenu3',page3Title)" type="text" class="store_plinkitem autogrow-text" factor="9"
+          maxlength="20" [(ngModel)]="page3Title" [class.active]="page3Title == pageName" readonly/>
+        <i class="fa fa-edit btnEdit" (click)="editLabel('inputMenu3')"></i>
+        <i class="fa fa-save btnSave" (click)="saveLabel('inputMenu3',3)"></i>
+      </div>
+      <div class="plinkitem-container">
+        <input id="inputMenu4" (click)="openPage('inputMenu4',page4Title)" type="text" class="store_plinkitem autogrow-text" factor="9"
+          maxlength="20" [(ngModel)]="page4Title" [class.active]="page4Title == pageName" readonly/>
+        <i class="fa fa-edit btnEdit" (click)="editLabel('inputMenu4')"></i>
+        <i class="fa fa-save btnSave" (click)="saveLabel('inputMenu4',4)"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<carousel [interval]="0">
+  <slide *ngFor="let banner of banneritems; let index=index">
+    <img class="banner-img" [src]="banner" alt="image slide" style="display: block; width: 100%;">
+
+    <div class="carousel-caption">
+      <i class="fa fa-edit btn" (click)="openModal(template,'editBanner', index)"></i>
+      <i *ngIf="this.banneritems.length > 1" class="fa fa-remove btn" (click)="removeBannerImage(banner)"></i>
+      <i *ngIf="this.banneritems.length < 5" class="fa fa-plus btn" (click)="openModal(template,'addBanners', -1)"></i>
+    </div>
+  </slide>
+</carousel>
+
+<div class="page w3-card card">
+  <div class="pageSectionHeader">
+    <h2 class="section-title">{{pageName}}</h2>
+    <i *ngIf="!pageEditModeOn" class="fa fa-edit btnEdit btnEditPageSection" (click)="editPageSection()"></i>
+    <i *ngIf="pageEditModeOn" class="fa fa-save btnEdit btnEditPageSection" (click)="savePageSection()"></i>
+  </div>
+  <app-ngx-editor *ngIf="pageEditModeOn" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="pageDetailsSection"></app-ngx-editor>
+  <div *ngIf="!pageEditModeOn" [innerHTML]="pageDetailsSection | safeHtml "></div>
+</div>
+
+<div class="page w3-card card">
+  <div class="pageSectionHeader">
+    <h2 class="section-title" style="margin:0;">Store</h2>  
+    <i class="fa fa-plus-square-o btnEdit btnEditPageSection"></i>
+  </div>
+    <app-search></app-search> 
+  
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Online Local Service</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <image-upload [max]="maxImageUploadAllowed" [maxFileSize]="1048576" [buttonCaption]="btnUploadImgCaption" (removed)="onRemoved($event)"
+      (uploadFinished)="onUploadFinished($event)" (uploadStateChanged)="onUploadStateChanged($event)"></image-upload>
+  </div>
+</ng-template>

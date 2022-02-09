@@ -1,0 +1,8 @@
+<div id="mySidenav" class="sidenav">
+  <span class="sidebar-title">Categories </span>
+  <a href="javascript:void(0)" class="closebtn" (click)="closeSideNavBar($event)">&times;</a>
+  <a *ngFor="let category of categories | filterIsactive; let idx=index" 
+      routerLinkActive="active" routerLink="/category/{{category._id}}">
+    {{category.name}}
+  </a>
+</div>

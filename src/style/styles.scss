@@ -1,0 +1,56 @@
+// @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+// Variables
+// ---------
+@import 'variables/colors';
+@import 'variables/typography';
+
+// mixins
+// ---------
+@import 'mixins/media';
+
+body {
+  font-family: $defaultFontFamily;
+  background: $defaultBgColor;
+  min-width: 325px;
+  position: relative;
+ }
+.noscroll{
+  position: fixed;
+  overflow: hidden;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+}
+ p{
+   font-family: $defaultFontFamily;
+   font-size: 16px;
+   font-weight: 300;
+   line-height: 1.7em;
+   color: #999;
+   @include tablet {
+    font-size: 18px;
+  }
+
+  @include desktop {
+    font-size: 20px;
+  }
+ }
+
+ a, a:hover, a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+*{
+  outline: 0;
+}
+img{
+  outline: 0;
+}
+a img{
+  text-decoration: none;
+  color:inherit;
+  border: none;
+  outline: none;
+}

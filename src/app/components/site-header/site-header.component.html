@@ -1,0 +1,135 @@
+<header>
+  <nav class="navbar-fixed-top nav-color" id="site-header">
+    <div class="container">
+
+      <div class="row">
+        <ul class="largenav pull-right">
+          <li class="dropdown upper-links" *ngIf="isUserAuthenticated">
+            <a href="#" class="dropdown-toggle links" data-toggle="dropdown">
+              <i class="fa fa-user-circle-o" aria-hidden="true">&nbsp;</i>Seller
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="navbar-content">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <img src="http://placehold.it/120x120" alt="Alternate Text" class="img-responsive" />
+                      <p class="text-center small">
+                        <a routerLink="/changephoto" routerLinkActive="active">Change Photo
+                        </a>
+                      </p>
+                    </div>
+                    <div class="col-md-7">
+                      <span>Shubh Gupta</span>
+                      <p class="text-muted small">
+                        shubhgupta4u@gmail.com</p>
+                      <div class="divider">
+                      </div>
+                      <a routerLink="/changepwd" routerLinkActive="active" class="btn btn-primary btn-sm active">Change Password</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="navbar-footer">
+                  <div class="navbar-footer-content">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <a routerLink="/profile" routerLinkActive="active" class="btn btn-success btn-sm" style="width: 100%">View Profile
+                        </a>
+                      </div>
+                      <div class="col-md-6">
+                        <a routerLink="/seller" routerLinkActive="active" class="btn btn-warning btn-sm pull-right" style="width: 100%">View Store</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="upper-links" *ngIf="isUserAuthenticated">
+            <a class="links" href="#" routerLink="/message" routerLinkActive="active">
+              <i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>Message</a>
+          </li>
+          <li class="upper-links">
+
+            <a class="links" href="#" routerLink="/" routerLinkActive="active">
+              <i class="fa fa-home" aria-hidden="true">&nbsp;</i>Home</a>
+          </li>
+          <li class="upper-links" *ngIf="!isUserAuthenticated">
+            <a class="links" routerLink="/login">
+              <i class="fa fa-user-circle-o" aria-hidden="true">&nbsp;</i>Seller</a>
+          </li>
+          <li class="upper-links" *ngIf="isUserAuthenticated">
+            <a class="links" href="#" (click)="logout($event)">
+              <i class="fa fa-sign-out" aria-hidden="true">&nbsp;</i>Logout</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="row brand-container">
+        <form style="display: flex">
+          <div class="logo-img">
+            <a routerLink="/" routerLinkActive="active" tabindex="1">
+              <img src="../../assets/images/logo.png" />
+            </a>
+          </div>
+          <app-search-box class="search-box smallsearch"></app-search-box>
+        </form>
+      </div>
+
+      <div class="row">
+        <span class="toggle-button" style="font-size:30px;cursor:pointer" (click)="openSideNavBar($event)">&#9776;</span>
+
+        <div class="nav-top-menu-handheld">
+          <ul class="nav nav-pills pull-right">
+            <li>
+              <a [ngClass]="searchIconClass" href="#" (click)="openSearchBox($event)">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li *ngIf="isUserAuthenticated">
+              <a href="#">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li *ngIf="isUserAuthenticated">
+              <a href="#">
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/login" *ngIf="!isUserAuthenticated">
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" (click)="logout($event)" *ngIf="isUserAuthenticated">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+       
+        <div id="container-searchbox" style="margin-bottom: 10px;"  class="container" [hidden]="!showSearchBox">
+            <app-search-box></app-search-box>
+        </div>
+      </div>
+
+      <div class="row" class="menu-categories">
+        <ul class="nav nav-pills nav-justified">
+          <li *ngFor="let category of categories | filterIsactive; let idx=index">
+            <a routerLinkActive="active" routerLink="/category/{{category._id}}">{{category.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

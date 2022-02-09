@@ -1,0 +1,111 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "onlinelocalstore",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/0.991a66f634ce5e0e4a53.chunk.js",
+        "/1.e2fb0c670846333bc149.chunk.js",
+        "/2.97a97b6949254179b74b.chunk.js",
+        "/3.d31262528b60199084e6.chunk.js",
+        "/4.1d1434f00f439b68898f.chunk.js",
+        "/5.257e9417a81075530830.chunk.js",
+        "/favicon.ico",
+        "/fontawesome-webfont.674f50d287a8c48dc19b.eot",
+        "/fontawesome-webfont.912ec66d7572ff821749.svg",
+        "/fontawesome-webfont.af7ae505a9eed503f8b8.woff2",
+        "/fontawesome-webfont.b06871f281fee6b241d6.ttf",
+        "/fontawesome-webfont.fee66e712a8a08eef580.woff",
+        "/glyphicons-halflings-regular.448c34a56d699c29117a.woff2",
+        "/glyphicons-halflings-regular.89889688147bd7575d63.svg",
+        "/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf",
+        "/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot",
+        "/glyphicons-halflings-regular.fa2772327f55d8198301.woff",
+        "/index.html",
+        "/inline.a550c4a5cd7a778d97fa.bundle.js",
+        "/main.143b6e2f54f91b4aed79.bundle.js",
+        "/polyfills.5ec856def4e1000c906f.bundle.js",
+        "/scripts.84785c545ce36d775ecd.bundle.js",
+        "/styles.59a2120198d3d0b67eaf.bundle.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/images/banner/001.jpg",
+        "/assets/images/banner/002.jpg",
+        "/assets/images/banner/003.jpg",
+        "/assets/images/banner/004.jpg",
+        "/assets/images/icon-36.png",
+        "/assets/images/icon-48.png",
+        "/assets/images/icon-72.png",
+        "/assets/images/icon-88.png",
+        "/assets/images/icon-96.png",
+        "/assets/images/icon.png",
+        "/assets/images/logo.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/0.991a66f634ce5e0e4a53.chunk.js": "a98e3bcfbb7a3a09e79d0000f27d8a9f70176204",
+    "/1.e2fb0c670846333bc149.chunk.js": "04ff7e7377a231cbbf0bfda85dd2f107dc4b9aac",
+    "/2.97a97b6949254179b74b.chunk.js": "57abe55e192e8844cd546868fd21a22614344963",
+    "/3.d31262528b60199084e6.chunk.js": "85f565bc3a5f52920864fe2fe138d1e70ea16807",
+    "/4.1d1434f00f439b68898f.chunk.js": "51afa41fcd8eddd875d9a260d26b7188cc91b07c",
+    "/5.257e9417a81075530830.chunk.js": "eb30de6b7bfaa29be94cd72cfa7a393f99e308d2",
+    "/assets/images/banner/001.jpg": "9fde538e3e2499e1cb82af1de9cbb47e00aaeb08",
+    "/assets/images/banner/002.jpg": "4ac1fbb37d8f32a3c731abf88d031bb0d01660ed",
+    "/assets/images/banner/003.jpg": "7b827aba3b32ece72999010081c8d6bc397a801c",
+    "/assets/images/banner/004.jpg": "c813d0cadf4167db82d419dfe5aa8a3c420da296",
+    "/assets/images/icon-36.png": "64125df380e90abc8bd4d5b9addf4a4aaad77ae9",
+    "/assets/images/icon-48.png": "edc751b5f2fa416a2e2f7b88a58d771ac0e42d07",
+    "/assets/images/icon-72.png": "9e4decc11e8be24cfb618f91b3ad7868ee3e7213",
+    "/assets/images/icon-88.png": "32e7de95b4f95251b857d83f35125047f1314040",
+    "/assets/images/icon-96.png": "201011363c117c114b0b85b624827677906b86b7",
+    "/assets/images/icon.png": "32e7de95b4f95251b857d83f35125047f1314040",
+    "/assets/images/logo.png": "93b6b346b4c68f1262802029307d55870c1db61b",
+    "/favicon.ico": "ddbc7fd202b6f86c0683d839aedac09e30a79aaa",
+    "/fontawesome-webfont.674f50d287a8c48dc19b.eot": "d980c2ce873dc43af460d4d572d441304499f400",
+    "/fontawesome-webfont.912ec66d7572ff821749.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
+    "/fontawesome-webfont.af7ae505a9eed503f8b8.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
+    "/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
+    "/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
+    "/glyphicons-halflings-regular.448c34a56d699c29117a.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
+    "/glyphicons-halflings-regular.89889688147bd7575d63.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
+    "/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
+    "/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot": "86b6f62b7853e67d3e635f6512a5a5efc58ea3c3",
+    "/glyphicons-halflings-regular.fa2772327f55d8198301.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
+    "/index.html": "e3e29a732bd092f0cfac51c5233a218ff00580fc",
+    "/inline.a550c4a5cd7a778d97fa.bundle.js": "502bf2e3a725ceb61a7ef8c66cc3bc9844cb5283",
+    "/main.143b6e2f54f91b4aed79.bundle.js": "134cb59c7ca023f5a2f7b697358b844b09ecf0f0",
+    "/polyfills.5ec856def4e1000c906f.bundle.js": "cdfb60744c0fb64bb65535102bd4329433971271",
+    "/scripts.84785c545ce36d775ecd.bundle.js": "9149dc1ac51244df7fee99a0c8146f20eda7419d",
+    "/styles.59a2120198d3d0b67eaf.bundle.css": "f4d4ca94c2e3a92c2c44f9a153269d26b74f506c"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*\\.[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*\\/.*$"
+    }
+  ]
+}

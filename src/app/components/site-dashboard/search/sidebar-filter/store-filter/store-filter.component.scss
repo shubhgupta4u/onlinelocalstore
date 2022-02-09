@@ -1,0 +1,227 @@
+// mixins
+// ---------
+@import "../../../../../../style/mixins/media";
+@import "../../../../../../style/variables/colors";
+
+.searchtext-container {
+  margin-bottom: 7px;
+  i {
+    position: absolute;
+    color: $defaultNavBarBgColor;
+  }
+  .searchinput {
+    width: 100%;
+    border-width: 0 0 2px 0;
+    border-color: #e0e0e0;
+    padding: 0 0 0 21px;
+    height: 20px;
+    color: #878787;
+    outline: none;
+    font-size: 14px;
+  }
+}
+.std-btn {
+  color: $defaultNavBarBgColor;
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+}
+.store-icon-btn {
+  cursor: pointer;
+  color: $defaultNavBarBgColor;
+  display: none;
+  margin-right: 13px;
+  @include mobile-potrait {
+    display: inline-block;
+  }
+}
+.store-btn {
+  display: inline-block;
+  margin-right: 13px;
+  @include mobile-potrait {
+    display: none;
+  }
+}
+.std-btn-box {
+  color: $headerHyperlinkColor;
+  background-color: $defaultNavBarBgColor;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  min-width: 123px;
+}
+.store-btn-box {
+  margin: 3px 0;
+  margin-right: 13px;
+}
+.storename-container {
+  .storeAlphabet-item {
+    padding: 6px 0;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    .bookmark {
+      line-height: 1;
+      color: $defaultNavBarBgColor;
+    }
+    .storecheckbox {
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .storecheckbox-wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      width: auto;
+
+      .proxy-checkbox {
+        position: relative;
+        width: 14px;
+        height: 14px;
+        background: transparent;
+        border: 1.4px solid #c2c2c2;
+        border-radius: 1.5px;
+        cursor: pointer;
+        box-sizing: border-box;
+        vertical-align: middle;
+        i {
+          display: none;
+        }
+      }
+      .active {
+        color: $headerHyperlinkColor;
+        background: $defaultNavBarBgColor;
+        i {
+          display: block;
+          font-size: 10px;
+        }
+      }
+      .checkbox-storename {
+        vertical-align: middle;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1;
+        cursor: pointer;
+        display: inline;
+        font-weight: normal;
+        flex: 1;
+        color: #212121;
+        padding-left: 11px;
+      }
+    }
+  }
+}
+.viewmorestore {
+  color: $defaultNavBarBgColor;
+  text-transform: uppercase;
+  margin-top: 9px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.storefilter {
+  border: 1px solid gray;
+  display: none;
+  padding: 20px;
+  padding-top: 5px;
+  position: absolute;
+  display: none;
+  background-color: white;
+  opacity: 1;
+  z-index: 3000;
+  width: 100vw;
+  height: 100vh;
+  @include mobile-potrait {
+    top: 0;
+    left: 0;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+  @include mobile-landscape {
+    top: 0;
+    left: 0;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+  @include tablet {
+    top: 0;
+    left: 0;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+  @include desktop {
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 700px;
+    height: 400px;
+  }
+}
+
+.storefilter .header-storefilter {
+  position: relative;
+  height: 30px;
+  border-bottom: 1px solid gray;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.storefilter .filterby-alphabets {
+  display: none;
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.storefilter .filterby-alphabets > * {
+  margin-right: 10px;
+}
+
+.storefilter .storeName {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  @include mobile-potrait {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.storeName > * {
+  padding-right: 30px;
+}
+
+.filter-close {
+  display: inline-block;
+  vertical-align: middle;
+  color: $defaultNavBarBgColor;
+}
+.mobile-filter-footer{
+  min-height: 80px;
+  @include desktop{      
+    display: none;
+  }
+}

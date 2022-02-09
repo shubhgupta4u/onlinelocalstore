@@ -1,0 +1,132 @@
+.search-left{
+    width: auto;
+    height: 35px;
+    display: inline;
+    div{
+        position: relative;
+        float: left;
+        cursor: pointer;
+    }   
+}
+.search-fill{
+    position: relative;
+    width: auto;
+    white-space: nowrap;
+    height: 35px;
+    zoom: 1;
+    overflow: hidden;
+    .search-field{
+        border: none;
+        border-top: 1px solid transparent;
+        position: relative;
+        height: 35px;
+        background: #fff;
+    }
+    .search-input{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        line-height: 15px;
+        padding: 6px 10px 6px 0;
+        margin: 0;
+        border: 0;
+        font-size: 15px;
+        height: 33px;
+        background: 0 0;
+        text-indent: 8px;
+        color: #111;
+        width: 100%;
+    }
+}
+.search-right{
+    width: auto;
+    height: 35px;
+    position: relative;
+    float: right;
+    cursor: pointer;   
+    div{
+        background-color: #febd69;
+        border: 0;
+        width: 45px;
+        position: relative;
+        height: 35px;
+        overflow: hidden;
+        cursor: pointer;
+        left: 0;
+        top: 0;
+        border-radius: 0 4px 4px 0;
+        background-position: 0 -381px;
+        span{
+            background-position: -10px -290px;
+            width: 21px;
+            height: 21px;
+            top:10px;
+            left: 12px;
+            color: #111;
+            position: absolute;
+            font-weight: 700;
+            vertical-align: middle;
+            font-size: 13px;
+            line-height: 13px;
+            text-align: center;
+        }
+    }
+    
+}
+.search-dropdown-wrapper{
+    background-color: #f3f3f3;
+    border: 1px solid #f3f3f3;
+    border-right: 1px solid #cdcdcd;
+    height: 35px;
+    margin: 0;
+    padding-left: 5px;
+    overflow: hidden;
+    border-radius: 4px 0 0 4px;
+    background-position: 0 -532px;
+    .search-dropdown{
+        position: absolute;
+        left: 0;
+        height: 35px;
+        width: auto;
+        outline: none;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        cursor: pointer;
+        visibility: visible;
+        border: 0;
+        line-height: 35px;
+        transition: all .1s linear;
+        color: #111;
+        font-size: 100%;
+        vertical-align: middle;
+        display: block; 
+        top: -1px;
+    }
+    .dorpdown-icon{
+        position: absolute;
+        top: 14px;
+        right: 8px;
+        border-style: solid;
+        border-color: transparent;
+        border-width: 4px;
+        border-top: 4px solid #666;
+        border-bottom-width: 0;
+        width: 0;
+        height: 0;
+        line-height: 0;
+        font-size: 0;
+    }
+    .dorpdown-label{
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: #666;
+        line-height: 33px;
+        font-size: 12px;
+        margin-right: 21px;
+        margin-left: 5px;
+    }
+}

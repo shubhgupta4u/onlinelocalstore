@@ -1,0 +1,19 @@
+ul
+{
+    padding: 0px;
+    padding-left: 20px;
+    .parent{
+        font-size: 12px;
+    }
+    list-style-type: none;
+    font-size: 12px;
+    .active{
+        font-weight: bold;
+    }
+    a{
+        cursor: pointer;
+    }
+}
+ul:first-child {
+    padding: 0px;
+}

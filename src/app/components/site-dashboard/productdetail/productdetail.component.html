@@ -1,0 +1,128 @@
+<div class="detailview-wrapper" 
+    *ngIf="product!=null">
+  <div class="leftside-container">
+    <div class="leftside-wrapper">
+      <div class="imggroup" *ngIf="product.images!=null && product.images.length>0">
+        <div *ngFor="let image of product.images|slice:0:4">
+            <img  [src]="image.image">
+        </div>        
+      </div>
+      <div class="mainimg">
+        <div class="mainimg-inner">
+          <img [src]="product.imageUrl" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="rightside-wrapper-inner">
+      <app-category-navtree></app-category-navtree>
+      <div class="productdetail-header">
+        <div class="header-title">
+          <h1>{{ product.title }}</h1>
+        </div>
+        <div class="product-rating">
+          <span>
+            <div class="rating-box">{{0}} ★</div>
+          </span>
+          <span class="rating-count">
+            (No Rating)
+          </span>
+        </div>
+        <div class="product-price">
+            ₹{{product.price}}
+        </div>
+      </div>
+      <div class="productdetail-offer">
+        <span class="row">
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNCAxNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHBhdGggaWQ9ImEiIGQ9Ik0wIC4yNTZoMTMuOTJ2MTMuOTdIMCIvPjwvZGVmcz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnPjxtYXNrIGlkPSJiIiBmaWxsPSIjZmZmIj48dXNlIHhsaW5rOmhyZWY9IiNhIi8+PC9tYXNrPjxwYXRoIGQ9Ik0uMDQzLjg3NUwwIDcuMjAyYzAgLjE1NS4wNi4zMDQuMTcuNDEzbDYuMzk3IDYuNDIyYy4yNTIuMjUyLjY2LjI1Mi45MSAwbDYuMjU0LTYuMjc1Yy4yNTMtLjI1My4yNTMtLjY2MiAwLS45MTVMNy4zMzQuNDI3Yy0uMTEtLjExLS4yNTgtLjE3Mi0uNDEyLS4xN0wuNjE3LjNDLjMuMzAyLjA0Ni41NTguMDQzLjg3NSIgZmlsbD0iIzM4OGUzYyIgbWFzaz0idXJsKCNiKSIvPjwvZz48cGF0aCBkPSJNMy42MTcgNS40MTdjLS44MzcgMC0xLjUxNi0uNjgtMS41MTYtMS41MnMuNjgtMS41MjMgMS41MTctMS41MjNjLjgzOCAwIDEuNTE2LjY4MiAxLjUxNiAxLjUyMnMtLjY3OCAxLjUyLTEuNTE2IDEuNTJ6IiBmaWxsPSIjRkZGIi8+PC9nPjwvc3ZnPgo="
+            width="18" height="18">
+          <li>
+            <span>{{product.offer}}</span>
+            <span class="section-readmore" [title]="product.offerTC">T&amp;C</span>
+          </li>
+        </span>
+      </div>
+      <div class="productdetail-hs">
+        <div class="flex" style="margin-top:24px;">
+          <div class="section-heading">
+            <span>Highlights</span>
+          </div>
+          <div class="highlight-wrapper">
+            <ul *ngIf="product.highlights!=null && product.highlights.length>0">
+              <li class="highlight-item" *ngFor="let highlight of product.highlights| slice:0:5">
+                {{highlight.highlight}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex" style="margin-top:24px;">
+          <div class="section-heading">
+            <span>Services</span>
+          </div>
+          <div class="service-wrapper">
+            <ul>
+              <li>
+                <i class="fa fa-times" aria-hidden="true"></i>
+                FREE delivery within 2KM
+              </li>
+              <li>
+                <i class="fa fa-check" aria-hidden="true"></i>
+                FREE collection from store
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="productdetail-store">
+        <div class="section-heading">
+          <span>Store</span>
+        </div>
+          <div class="section-readmore">
+            <a routerLink="/store/{{product.storeCode}}" [title]="product.store">
+              <span>{{product.store}}</span>
+            </a>
+          </div>
+      </div>
+      <div class="productdetail-desc">
+        <div class="section-heading">
+          <span>Description</span>
+        </div>
+        <div class="section-detail">
+          <div class="section-detail-dsc">
+            {{product.description}}
+            <div class="section-readmore">
+                <span>Read More</span>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="productdetail-spec">
+        <div class="productdetail-spec-heading">
+          <span>Specifications</span>
+        </div>
+        <div class="productdetail-spec-detail">
+          <ul *ngIf="product.specifications!=null && product.specifications.length>0">
+            <li class="spec-item row" *ngFor="let specification of product.specifications">
+              <div class="heading">{{specification.heading}}</div>
+              <div class="information">{{specification.information}}</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="productdetail-desc">
+        <div class="section-heading">
+          <span>More Details</span>
+        </div>
+        <div class="section-detail">
+          <div class="section-detail-dsc">
+            {{product.moreDetail}}
+            <div class="section-readmore">
+                <span>Read More</span>
+              </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>

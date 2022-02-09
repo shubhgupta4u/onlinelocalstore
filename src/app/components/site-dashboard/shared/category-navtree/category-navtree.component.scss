@@ -1,0 +1,28 @@
+
+.nav-item {
+    font-size: 12px;
+    display: inline-block;
+    color: #878787;
+    cursor: pointer;
+    a {
+      max-width: 100px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      vertical-align: middle;
+      &:hover {
+        max-width: fit-content;
+        color: blue;
+      }
+    }
+    svg {
+      height: 7px;
+      width: 20px;
+      transform: rotate(180deg);
+      vertical-align: middle;
+    }
+    path {
+      fill: #878787;
+    }
+  }

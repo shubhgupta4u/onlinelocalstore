@@ -1,0 +1,162 @@
+// mixins
+// ---------
+@import "../../../../../style/mixins/media";
+
+$fontsize: 1em;
+
+div, span,p,a{
+  font-size: $fontsize;
+}
+
+.container-product {
+  position: relative;
+  padding: 5px 20px 20px 20px;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.product-inner {
+  min-width: 220px;
+  /* Make this scrollable when needed */
+  overflow-x: hidden;
+  /* We don't want vertical scrolling */
+  overflow-y: hidden;
+  /* For WebKit implementations, provide inertia scrolling */
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* Change this */
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: flex-start; /* Add this */
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  align-items: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+.card {
+  width: 160px;
+  // @include tablet {
+  //   width: 180px;
+  // }
+
+  // @include desktop {
+  //   width: 200px;
+  // }
+}
+.image-container {
+  position: relative;
+  width: 160px;
+  height: 192px;
+  // @include tablet {
+  //   width: 180px;
+  //   height: 216px;
+  // }
+
+  // @include desktop {
+  //   width: 200px;
+  //   height: 240px;
+  // }
+}
+.button-container-outer {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.button-previous-outer {
+  left: 0;
+}
+
+.button-container-inner {
+  position: relative;
+  padding: 16px;
+  font-size: 41px;
+  top: 50%;
+  margin-top: -49px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.nav-button-prev {
+  left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.nav-button-next:hover,
+.nav-button-prev:hover {
+  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
+}
+
+.button-next-outer {
+  right: 0;
+}
+
+.nav-button-next {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+.nav-button-svg {
+  fill: #212121;
+}
+
+.nav-button-next-svg {
+  transform: rotate(180deg);
+}
+
+.nav-button-disabled {
+  opacity: 0.2;
+}
+.product-name {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 10 px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  // @include tablet {
+  //   font-size: 14px;
+  // }
+  // @include desktop {
+  //   font-size: 16px;
+  // }
+}
+
+.store-name {
+  color: blue;
+  cursor: pointer;
+  z-index: 9998;
+}
+.thumbnail-product-price {
+  position: absolute;
+  margin-bottom: 5px;
+  bottom: 0px;
+  background-color: white;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.3);
+  width: 50px;
+  left:calc(50% - 25px) ;
+  @include tablet {
+    width: 60px;
+    left:calc(50% - 30px) ;
+  }
+  @include desktop {
+    width: 70px;
+    left:calc(50% - 35px) ;
+  }
+}

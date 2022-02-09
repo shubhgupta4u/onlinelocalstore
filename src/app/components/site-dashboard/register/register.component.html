@@ -1,0 +1,134 @@
+<div class="regiter-container row"ng-controller="registerController">
+  <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <form (ngSubmit)="f.form.valid && register($event)" #f="ngForm" novalidate>
+      <h2>Seller Sign Up <small>It's free and always will be.</small></h2>
+      <hr class="colorgraph">
+      <div class="row input-row">
+        <div class="col-xs-12 col-sm-6 col-md-6" style="padding: 0" >
+          <div class="input-group input-1" [ngClass]="{ 'has-error': f.submitted && !firstname.valid }">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <input type="text" name="firstname" maxlength="50" pattern="[A-Z a-z]{2,50}"
+                   onkeyup="this.value = this.value.replace(/[^A-Z a-z]/, '')"
+                   name="firstname" [(ngModel)]="model.firstname" #firstname="ngModel" required 
+                   class="form-control input-sm" placeholder="First Name" tabindex="1">                   
+            
+          </div>
+          <span class="error" *ngIf="f.submitted && !firstname.valid">Must contain only characters of minimum 3 length</span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6" style="padding: 0">
+          <div class="input-group input-1" [ngClass]="{ 'has-error': f.submitted && !lastname.valid }">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <input type="text" maxlength="50"  pattern="[A-Z a-z]{2,50}"  
+                    onkeyup="this.value = this.value.replace(/[^A-Z a-z]/, '')"
+                    name="lastname" [(ngModel)]="model.lastname" #lastname="ngModel" required               
+                    class="form-control input-sm" placeholder="Last Name" tabindex="2">
+          </div>
+          <span class="error" *ngIf="f.submitted && !lastname.valid">Must contain only characters of minimum 3 length</span>
+        </div>
+      </div>
+      <div class="input-group input-2">
+        <span class="input-group-addon "><i class="fa fa-television"></i></span>
+        <input type="text" name="displayname" maxlength="100"
+              [(ngModel)]="model.displayname" #displayname="ngModel" 
+               class="form-control input-sm" placeholder="Seller Display Name" tabindex="3">
+      </div>
+      <div class="input-row">
+          <div class="input-group input-2"
+          [ngClass]="{ 'has-error': f.submitted && !phone.valid }">
+          <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+            <input type="phone" name="phone" maxlength="15" pattern="[0-9]{3,15}"
+            onkeyup="this.value = this.value.replace(/[^0-9]/, '')"
+            [(ngModel)]="model.phone" #phone="ngModel" required 
+             class="form-control input-sm" placeholder="Mobile No" tabindex="4">
+          </div>
+          <span class="error" *ngIf="f.submitted && !phone.valid">Must contain only numbers of minimum 3 length</span>
+      </div>
+      <div class="input-row">
+          <div class="input-group input-2"
+          [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            <input type="email" name="email"  maxlength="100"
+            [(ngModel)]="model.email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            class="form-control input-sm" placeholder="Email Address" tabindex="5">
+          </div>
+          <span class="error" *ngIf="f.submitted && !email.valid">Email Id must in valid format</span>
+      </div>
+     
+      <div class="row input-row">
+        <div class="col-xs-12 col-sm-6 col-md-6"  style="padding: 0">
+          <div class="input-group input-3" 
+          [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+          <span class="input-group-addon"><i class="fa fa-key"></i></span>
+            <input type="password" name="password"  maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            [(ngModel)]="model.password" #password="ngModel" required 
+            class="form-control input-sm" placeholder="Password" tabindex="6">
+          </div>          
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6"  style="padding: 0">
+          <div class="input-group input-3"
+          [ngClass]="{ 'has-error': f.submitted && !confirmpwd.valid }">
+          <span class="input-group-addon"><i class="fa fa-key"></i></span>
+            <input type="password" name="confirmpwd"  maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            [(ngModel)]="model.confirmpwd" #confirmpwd="ngModel" required 
+             class="form-control input-sm" placeholder="Confirm Password" tabindex="7">
+          </div>
+        </div>
+        <span class="error" *ngIf="f.submitted && (!password.valid || !confirmpwd.valid)">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
+      </div>
+      <div class="row input-row input-1">
+        <div class="col-xs-4 col-sm-3 col-md-3" style="padding: 0">
+                    <span class="button-checkbox">
+                        <button type="button" (click)="onAgreementSelected(false)"
+                        class="btn glyphicon active"
+                        [class.glyphicon-unchecked] ="!isAgree"
+                        [class.btn-default] ="!isAgree"
+                        [class.glyphicon-check] ="isAgree"
+                        [class.btn-info] ="isAgree"
+                         tabindex="8"> I Agree</button>
+                    </span>
+        </div>
+        <div class="col-xs-8 col-sm-9 col-md-9" style="padding: 0">
+          By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" class="btn-link" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+        </div>
+      </div>
+
+      <hr class="colorgraph">
+      <div class="row">
+        <div class="col-xs-12 col-md-6"><button [disabled]="!isAgree || loading"
+           class="btn btn-primary btn-block btn-sm" tabindex="9">Register</button>  
+          </div>
+        <div class="col-xs-12 col-md-6"><a routerLink="/login" routerLinkActive="active" class="btn btn-success btn-block btn-sm" tabindex="10">Sign In</a></div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">OnlineLocalStore</h4>
+      </div>
+      <div class="modal-body term-condition-body">
+        <h3>Terms & Conditions</h3>
+        <p>Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using the www.onlinelocalstore.com website (the "Service") operated by onlinelocalstore ("us", "we", or "our").</p>
+        <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all sellers, who access or promote their business and service over this platform.</p>
+        <h3>Accounts</h3>
+        <p>When you create an account with us, you must provide us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our service.</p>
+        <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by onlinelocalstore.</p>
+        <p>onlinelocalstore has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that onlinelocalstore shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
+        <h3>Termination</h3>
+        <p>We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+        <p>We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+        <p>Upon termination, your right to use the Service will immediately cease. If you wish to terminate your account, you may simply discontinue using the Service</p>
+        <h3>Governing Law</h3>
+        <p>These Terms shall be governed and construed in accordance with the laws of Uttar Pradesh, India, without regard to its conflict of law provisions.</p>
+        <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have between us regarding the Service.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onAgreementSelected(true)">I Agree</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

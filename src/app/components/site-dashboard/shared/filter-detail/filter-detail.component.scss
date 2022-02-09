@@ -1,0 +1,32 @@
+.selected-filter-container{
+    .selected-filter-item{
+      cursor: pointer;
+      display: inline-block;
+      font-size: 12px;
+      background-color: #e0e0e0;
+      box-shadow: 0 2px 4px 0 rgba(255, 255, 255, .5);
+      border-radius: 3px;
+      margin: 2px 4px;
+      padding: 8px;
+      overflow: hidden;
+      transition: background-color 0.1s;
+      max-width: 200px;
+      div{
+        display: inline;
+      }
+      .filter-option{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-left:3px;
+        max-width:90%;
+        vertical-align: bottom;
+        display: inline-block;
+      }
+      &:hover{
+        .filter-option{
+          text-decoration: line-through;
+        }
+      }
+    }
+  }

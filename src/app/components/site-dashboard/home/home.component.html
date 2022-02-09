@@ -1,0 +1,12 @@
+<div style="text-align:center">
+  <app-site-banner></app-site-banner>
+</div>
+<div class="w3-card card silder-wrapper"
+*ngFor="let category of categories | filterIsactive; let idx=index">
+<div class="category-product-wrapper">
+  <h3>{{category.name}} Top Deals</h3>
+  <div><button class="btn-primary" (click)="showAllProducts(category._id)">View All</button></div>
+</div>
+    <app-product-slider [category]="category._id"> </app-product-slider>
+</div>
+

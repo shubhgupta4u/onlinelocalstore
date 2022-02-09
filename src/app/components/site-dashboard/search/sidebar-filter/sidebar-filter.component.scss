@@ -1,0 +1,39 @@
+// mixins
+// ---------
+@import "../../../../../style/mixins/media";
+
+.sidebar-filter-section {
+  width: 100%;
+  padding: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+  .sidebar-filter-heading {
+    font-size: 18px;
+  }
+  .sidebar-filter-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 7px;
+  }  
+}
+.mobile-filter-footer{
+  min-height: 80px;
+  @include desktop{      
+    display: none;
+  }
+}
+.filter-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-close{
+  right: 0;
+  position: absolute;
+}
+.mobile-filter-close{
+  display: block;
+  @include desktop{
+    display: none;
+  }
+}

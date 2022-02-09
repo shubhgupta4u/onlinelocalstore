@@ -1,0 +1,41 @@
+<div class="container-product" *ngIf="products != null && products.length > 0">
+  <div class="product-inner">
+    <div class="product-item" *ngFor="let product of products | filterIsactive; let idx=index">
+      <div class="w3-card card">
+        <a routerLink="/product/{{product._id}}">
+          <div class="image-container">
+            <img [src]="product.imageUrl" [alt]="product.name" />
+            <a routerLink="/product/{{product._id}}">
+              <div class="product-name thumbnail-product-price">&#x20B9;{{product.price}}</div>
+            </a>
+          </div>
+        </a>
+        <div>
+          <a routerLink="/product/{{product._id}}">
+            <div class="product-name">{{product.name}}</div>
+          </a>
+          <div class="product-name store-name" (click)="openStorePage($event, product.storeCode)">{{product.store}}</div>
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="button-container-outer button-previous-outer nav-button-disabled">
+    <div class="button-container-inner nav-button-prev">
+      <svg width="14.6" height="24" viewBox="0 0 16 27">
+        <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" class="nav-button-svg"></path>
+      </svg>
+    </div>
+  </div>
+  <div class="button-container-outer button-next-outer">
+    <div class="button-container-inner nav-button-next">
+      <svg width="14.6" height="24" viewBox="0 0 16 27" class="nav-button-next-svg">
+        <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" class="nav-button-svg"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<div style="padding-left: 10px;" *ngIf="products == null || products.length == 0">
+  No product is added into this category yet!
+</div>

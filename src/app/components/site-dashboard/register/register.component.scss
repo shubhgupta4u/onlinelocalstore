@@ -1,0 +1,59 @@
+
+// mixin
+// ---------
+@import '../../../../style/mixins/media';
+.regiter-container{
+    margin: 20px;
+}
+.term-condition-body{
+    overflow-x: hidden;
+    overflow-y:scroll;
+    max-height: 70vh;
+    h3{
+        font-size:12px;
+        @include desktop{
+            font-size:14px;
+        }
+    }
+    p{
+        font-size:12px;
+        @include desktop{
+            font-size:14px;
+        }
+    }
+}
+.colorgraph {
+    height: 5px;
+    border-top: 0;
+    background: #c4e17f;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  }
+  .btn{
+      padding: 3px 6px;
+      margin: 5px 0;
+  }
+  .input-group-addon{
+      max-width: 35px;
+  }
+  .input-row{
+      margin: 0;
+  }
+  .input-1{
+    margin-top: 10px;
+  }
+  .input-2{
+    margin-top: 10px;
+  }
+ .input-3{
+    margin-top: 10px;
+  }
+  .error{
+      font-size: 10px;
+      font-size: 700;
+      color: #a94442;
+      margin-bottom: 10px;
+  }

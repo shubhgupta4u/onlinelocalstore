@@ -1,0 +1,48 @@
+// mixins
+// ---------
+@import "../../../../style/mixins/media";
+
+.container-body {
+    display: flex;
+    justify-content: space-between;
+    .sidebar-filter {
+      background-color: white;
+      display: none;
+      min-width: 250px;
+      width: auto;
+      @include desktop {
+        display: block;
+        margin: 10px 0 10px 10px;
+      }  
+    }
+  
+   .rightside-content{
+    flex-grow: 1;
+    @include desktop {
+     margin: 10px;
+    }  
+   }
+  }
+  .mobile-filter{
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    left: 0;
+    top: 0;
+    padding-right: 20px;
+    display: none;
+    background-color: white;
+    @include desktop {
+      display: none;
+    }
+    
+  }
+  .displayFilter{
+    position: absolute;
+    display: block;
+    z-index: 2000;
+    @include desktop {
+      display: none;
+    }
+  }

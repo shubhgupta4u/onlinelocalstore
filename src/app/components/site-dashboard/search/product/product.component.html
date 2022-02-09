@@ -1,0 +1,205 @@
+<div class="container-content">
+  
+  <div class="header-product">
+    <app-category-navtree></app-category-navtree>
+    <div class="header-search-title">
+      <div class="header-search-left">
+        <h1>{{ title }}</h1>
+        <div>
+          (Showing {{startIndex}} - {{endIndex}} of {{totalProducts}} results)
+        </div>
+      </div>
+      <div class="header-search-right">
+        <div class="sort-contaniner">
+          <span>Sort By:</span>
+          <div class="dropdown">
+            <a class="dropdown-toggle text-muted" data-toggle="dropdown" href="#" id="dropdown-sortmode" title="Sort">
+
+              <span class="glyphicon glyphicon-sort"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-pos" role="menu" aria-labelledby="dropdown-sortmode">
+              <li role="menuitem" [class.active]="sortBy == 'PopularityFirst'">
+                <a href="#" (click)="SortProduct($event, 'PopularityFirst')">Popularity</a>
+              </li>
+              <li role="menuitem" [class.active]="sortBy == 'PriceLowFirst'">
+                <a href="#" (click)="SortProduct($event, 'PriceLowFirst')">&#8377; - Low to High</a>
+              </li>
+              <li role="menuitem" [class.active]="sortBy == 'PriceHighFirst'">
+                <a href="#" (click)="SortProduct($event, 'PriceHighFirst')">&#8377; - High to Low</a>
+              </li>
+              <li role="menuitem" [class.active]="sortBy == 'NewFirst'">
+                <a href="#" (click)="SortProduct($event, 'NewFirst')">Newest First</a>
+              </li>
+            </ul>
+          </div>
+          <span class="seperator"></span>
+        </div>
+        <div class="filter-container">
+          <span>Filter By:</span>
+          <a (click)="filterHeader($event)" href="#">
+            <i class="fa fa-filter" [class.active]="mobileFilterSelectionOn"></i>
+          </a>
+          <span class="seperator"></span>
+        </div>
+        <div class="view-switch">
+          View As:
+          <a href="#" (click)="switchViewByProduct($event, true)">
+            <svg viewBox="0 0 25 24">
+              <path d="M1.127.015h6.091v6.359h-6.09zM.952 17.407h6.522v6.521H.952zm0-8.697h6.522v6.523H.952zM9.648.015h6.522v6.522H9.648zm0 17.392h6.522v6.521H9.648zm0-8.697h6.522v6.523H9.648zM24.858.015h-6.515v6.522h6.522L24.858.015m-6.515 23.913h6.515l.007-6.521h-6.522v6.521m0-15.218h6.522v6.523h-6.522z"
+                fill="#878787" [class.active]="viewByGrid">
+              </path>
+            </svg>
+          </a>
+          <a href="#" (click)="switchViewByProduct($event, false)">
+            <svg viewBox="0 0 26 25">
+              <path d="M0 .5h6v6H0zM0 18.5h6v6H0zM0 9.5h6v6H0zM10 .5h16v6H10zM10 18.5h16v6H10zM10 9.5h16v6H10z" fill="#878787" [class.active]="!viewByGrid"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="header-horizontal-line">
+    </div>
+    <div *ngIf="filterCriteria && isResultFilter" class="filter-detail">
+        <app-filter-detail></app-filter-detail>
+        <div class="header-horizontal-line">
+        </div>
+    </div>
+  </div>
+  
+  <div class="container-product">
+
+    <div class="container-product-grid" *ngIf="viewByGrid">
+      <div class="product-grid-inner">
+        <div class="product-grid-item w3-card card" *ngFor="let product of products | filterIsactive; let idx=index">
+          <a routerLink="/product/{{product._id}}">
+            <div class="container-image container-grid-image">
+              <img [src]="product.imageUrl" [alt]="product.name" />
+              <i *ngIf="sellerId > 0" class="fa fa-edit btnEdit" (click)="editProductDetail(product._id)"></i>
+            </div>
+          </a>
+          <a routerLink="/product/{{product._id}}">
+            <div class="product-name product-name-grid overflowText">
+              {{product.name}}
+            </div>
+            <div class="product-rating">
+              <span>
+                <div class="rating-box">{{0}} ★</div>
+              </span>
+              <span class="rating-count">
+                (No Rating)
+              </span>
+            </div>
+            <div>
+              ₹{{product.price}}
+            </div>
+          </a>
+          <a class="product-store-grid" routerLink="/store/{{product.storeCode}}">
+            <div class="overflowText">
+                <span class="storeheading">Store</span>
+                <span class="storename">{{product.store}}</span>
+            </div>            
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-product-list" *ngIf="!viewByGrid">
+      <div class="product-list-item w3-card card" *ngFor="let product of products | filterIsactive; let idx=index">
+        
+        <i *ngIf="sellerId > 0" 
+          class="fa fa-edit btnEdit" style="margin: 5px;" (click)="editProductDetail(product._id)"></i> 
+        <a routerLink="/product/{{product._id}}">
+          <div class="product-list-left">
+            <div class="container-image container-list-image">
+              <img [src]="product.imageUrl" [alt]="product.name" />             
+            </div>            
+          </div>
+          <div class="product-name thumbnail-product-price">&#x20B9;{{product.price}}</div>
+        </a>
+        <div class="product-list-middle">
+          <a routerLink="/product/{{product._id}}">
+            <div class="product-name product-name-list">
+              {{product.name}}
+            </div>
+            <div class="product-hightlight" *ngIf="product.highlights != null && product.highlights.length > 0">
+              <ul>
+                <li *ngFor="let highlight of product.highlights | slice:0:5; let idx=index">
+                  {{highlight.highlight}}
+                </li>
+              </ul>
+            </div>
+            <div class="product-rating">
+              <span>
+                <div class="rating-box">{{0}} ★</div>
+              </span>
+              <span class="rating-count">
+                (No Rating)
+              </span>
+            </div>
+          </a>
+          <a class="product-store-list" routerLink="/store/{{product.storeCode}}">
+            <span class="storeheading">Store</span>
+            <span class="storename">{{product.store}}</span>
+          </a>
+        </div>
+        <a routerLink="/product/{{product._id}}">
+          <div class="product-list-right">
+              <div class="amounts">
+                <div class="main-amount center border-t border-b">
+                  <strong class="price" data-product="price">
+                    ₹399.00
+                  </strong>
+                  <strong class="saving">Save ₹250.99</strong>
+                </div>
+                <div class="retail-store-amount">
+                  It is <strong>₹649.99</strong> usually from retail shop
+                </div>
+              </div>
+              <div class="channels-availability">
+                <ul>
+                  <li>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    FREE delivery within 2KM
+                  </li>
+                  <li>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    FREE collection from store
+                  </li>
+                </ul>
+              </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pagination" *ngIf="pages != null && pages.length > 0">
+    <div class="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3">
+      <div class="row">
+        <nav aria-label="...">
+          <ul class="pager">
+            <li [class.previous]="this.filterCriteria.pageNo > 1"
+                 [class.disabled]="this.filterCriteria.pageNo == 1">
+              <a href="#" (click)="previousPage($event)">
+                <span aria-hidden="true">←</span> Previous</a>
+            </li>
+            <li *ngFor="let page of pages; let idx=index"
+                [class.active]="this.filterCriteria.pageNo == page" >
+              <a *ngIf="this.filterCriteria.pageNo == page || this.filterCriteria.pageNo == page-1 || this.filterCriteria.pageNo == page + 1"
+               href="#" (click)="goToPage($event, page)">{{page}}</a>
+            </li>           
+            <li [class.next]="this.filterCriteria.pageNo < maxPageNo"
+                [class.disabled]="this.filterCriteria.pageNo == maxPageNo">
+              <a href="#"  (click)="nextPage($event)">Next
+                <span aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+

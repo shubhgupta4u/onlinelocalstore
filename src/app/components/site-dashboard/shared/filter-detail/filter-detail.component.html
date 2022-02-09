@@ -1,0 +1,25 @@
+<div class="selected-filter-container" *ngIf="searchedFilterCriteria">
+  <div *ngIf="searchedFilterCriteria.searchText && searchedFilterCriteria.searchText.length > 0" class="selected-filter-item" (click)="removeFilteroption('search')">
+    <div>✕</div>
+    <div class="filter-option" [title]="searchedFilterCriteria.searchText">Search: {{searchedFilterCriteria.searchText}}</div>
+  </div>
+  <div *ngIf="searchedFilterCriteria.storeName && searchedFilterCriteria.storeName.length > 0" class="selected-filter-item" (click)="removeFilteroption('store')">
+    <div>✕</div>
+    <div class="filter-option" [title]="searchedFilterCriteria.storeName">Store: {{searchedFilterCriteria.storeName}}</div>
+  </div>
+  <div *ngIf="category && category.length > 0" class="selected-filter-item" (click)="removeFilteroption('category')">
+    <div>✕</div>
+    <div class="filter-option">{{category}}</div>
+  </div>
+  <div *ngIf="searchedFilterCriteria.priceFrom > minPrice || searchedFilterCriteria.priceTo < maxPrice" class="selected-filter-item"
+    (click)="removeFilteroption('price')">
+    <div>✕</div>
+    <div class="filter-option">₹{{searchedFilterCriteria.priceFrom}}-₹{{searchedFilterCriteria.priceTo}}</div>
+  </div>
+  <div *ngIf="stores && stores.length > 0" style="display:inline;">
+    <div class="selected-filter-item" *ngFor="let store of stores" (click)="removeFilteroption('storeId', store._id)">
+      <div>✕</div>
+      <div class="filter-option" [title]="store.name">Store: {{store.name}}</div>
+    </div>
+  </div>
+</div>
